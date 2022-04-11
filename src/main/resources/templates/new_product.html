@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Agregar producto</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+</head>
+<body>
+    <div align="center">        
+        <div class="card">
+			<div class="card-header">
+				<h1>Agregar producto</h1>
+			</div>
+			<div class="card-body">
+			<div class="table-responsive">
+				<form id="form" action="#" th:action="@{/save}" th:object="${product}" method="post">
+           		<table id="nuevo_producto" class="table table-bordered table-hover table-striped">
+                <tr>
+                    <td>Nombre producto:</td>
+                    <td><input id="nombre" type="text" th:field="*{name}" required/></td>
+                </tr>
+                <tr>
+                    <td>Marca:</td>
+                    <td><input id="marca" type="text" th:field="*{brand}" required/></td>
+                </tr>
+                <tr>
+                    <td>Hecho en:</td>
+                    <td><input id="hechoen" type="text" th:field="*{madein}" required/></td>
+                </tr>
+                <tr>
+                    <td>Precio:</td>
+                    <td><input id="precio" onkeypress="return soloNumeros(this)" type="text" th:field="*{price}" required/><span id="tipo"></span></td>
+                </tr>                            
+                <tr>
+                    <td colspan="2"><button id="Btn" onclick="return guardar()" type="button">Guardar</button> </td>
+                </tr>
+            	</table>
+        		</form>
+        		</div>
+			</div>
+		</div>
+        <br/>        
+    </div>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/new_product.js"></script>
